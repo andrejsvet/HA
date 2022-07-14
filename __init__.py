@@ -11,7 +11,7 @@ DOMAIN = "elvpca"
 
 DEFAULT_DEVICE = "/dev/ttyUSB0"
 
-ELV_PLATFORMS = [Platform.SWITCH]
+ELVPCA_PLATFORMS = [Platform.SWITCH]
 
 CONFIG_SCHEMA = vol.Schema(
     {
@@ -26,7 +26,7 @@ CONFIG_SCHEMA = vol.Schema(
 def setup(hass: HomeAssistant, config: ConfigType) -> bool:
     """Set up the PCA switch platform."""
 
-    for platform in ELV_PLATFORMS:
+    for platform in ELVPCA_PLATFORMS:
         discovery.load_platform(
             hass, platform, DOMAIN, {"device": config[DOMAIN][CONF_DEVICE]}, config
         )
