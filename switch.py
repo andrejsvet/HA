@@ -14,7 +14,7 @@ from homeassistant.helpers.typing import ConfigType, DiscoveryInfoType
 
 _LOGGER = logging.getLogger(__name__)
 
-DEFAULT_NAME = "PCA 301"
+DEFAULT_NAME = "PCA301"
 
 
 def setup_platform(
