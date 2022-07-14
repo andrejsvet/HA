@@ -7,7 +7,7 @@ from homeassistant.helpers import discovery
 import homeassistant.helpers.config_validation as cv
 from homeassistant.helpers.typing import ConfigType
 
-DOMAIN = "elv"
+DOMAIN = "elvpca"
 
 DEFAULT_DEVICE = "/dev/ttyUSB0"
 
