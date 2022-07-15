@@ -6,6 +6,6 @@
   "codeowners": ["@andrejsvet"],
   "requirements": ["pypca==0.0.7"],
   "iot_class": "local_polling",
-  "loggers": ["pypca"]
+  "loggers": ["pypca"],
   "version": "0.1.0"
 }
