@@ -1,9 +1,0 @@
-{
-  "domain": "elvpca",
-  "name": "ELVPCA",
-  "documentation": "https://www.home-assistant.io/integrations/pca",
-  "codeowners": ["@andrejsvet"],
-  "requirements": ["pypca==0.0.7"],
-  "iot_class": "local_polling",
-  "loggers": ["pypca"]
-}
