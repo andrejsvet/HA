@@ -7,6 +7,7 @@ import pypca
 import json
 import paho.mqtt.publish as publish
 from serial import SerialException
+from homeassistant.components import mqtt
 
 from homeassistant.components.switch import SwitchEntity
 from homeassistant.const import EVENT_HOMEASSISTANT_STOP
@@ -85,12 +86,14 @@ class SmartPlugSwitch(SwitchEntity):
     def update(self):
         """Update the PCA switch's state."""
         try:
+            topic='pca/elv/'+self._device_id
             datajson = {}
             datajson["power"] = f"{self._pca.get_current_power(self._device_id):.1f}"
             datajson["consumption"] = f"{self._pca.get_total_consumption(self._device_id):.2f}"
             self._state = self._pca.get_state(self._device_id)
             datajson["state"] = self._state
-            self.write_mqtt(self._device_id,datajson)
+            #self.write_mqtt(self._device_id,datajson)
+            hass.components.mqtt.publish(topic,datajson)
             self._available = True
 
         except (OSError) as ex:
