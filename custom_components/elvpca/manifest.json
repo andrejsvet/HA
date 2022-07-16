@@ -4,7 +4,7 @@
   "name": "ELVPCA",
   "documentation": "https://www.home-assistant.io/integrations/pca",
   "codeowners": ["@andrejsvet"],
-  "requirements": [],
+  "requirements": ["pypca==0.0.7"],
   "iot_class": "local_polling",
   "loggers": ["pcapy"],
   "version": "0.1.0"
