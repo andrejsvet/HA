@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import logging
 
-import pcapy
+import pypca
 from serial import SerialException
 
 from homeassistant.components.switch import SwitchEntity
@@ -31,7 +31,7 @@ def setup_platform(
     serial_device = discovery_info["device"]
 
     try:
-        pca = pcapy.PCA(serial_device)
+        pca = pypca.PCA(serial_device)
         pca.open()
 
         entities = [SmartPlugSwitch(pca, device) for device in pca.get_devices()]
