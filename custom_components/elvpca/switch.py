@@ -31,7 +31,7 @@ def setup_platform(
     serial_device = discovery_info["device"]
 
     try:
-        pca = pcapy.PCA(serial_device)
+        pca = PCA(serial_device)
         pca.open()
 
         entities = [SmartPlugSwitch(pca, device) for device in pca.get_devices()]
