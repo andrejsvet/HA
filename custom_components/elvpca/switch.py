@@ -5,7 +5,6 @@ import logging
 import re
 import random
 import threading
-import paho.mqtt.publish as publish
 import pypca
 from serial import SerialException
 
