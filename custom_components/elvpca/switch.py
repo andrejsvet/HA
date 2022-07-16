@@ -85,9 +85,12 @@ class SmartPlugSwitch(SwitchEntity):
     def update(self):
         """Update the PCA switch's state."""
         try:
-            current_power = f"{self._pca.get_current_power(self._device_id):.1f}"
-            total_energy = f"{self._pca.get_total_consumption(self._device_id):.2f}"
+            datajson = {}
+            datajson["power"] = f"{self._pca.get_current_power(self._device_id):.1f}"
+            datajson["consumption"] = f"{self._pca.get_total_consumption(self._device_id):.2f}"
             self._state = self._pca.get_state(self._device_id)
+            datajson["state"] = self._state
+            self.write_mqtt(self._device_id,datajson)
             self._available = True
 
         except (OSError) as ex:
