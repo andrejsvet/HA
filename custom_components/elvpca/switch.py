@@ -4,6 +4,7 @@ from __future__ import annotations
 import logging
 import random
 import pypca
+import paho.mqtt.publish as publish
 from serial import SerialException
 
 from homeassistant.components.switch import SwitchEntity
