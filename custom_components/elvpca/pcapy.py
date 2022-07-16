@@ -110,7 +110,7 @@ class PCA:
 
     def start_scan(self):
         """Start scan task in background."""
-        self.get_devices(1)
+        self.get_devices()
         self._start_worker()
 
     def _write_cmd(self, cmd):
