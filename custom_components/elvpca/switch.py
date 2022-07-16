@@ -94,13 +94,3 @@ class SmartPlugSwitch(SwitchEntity):
             if self._available:
                 _LOGGER.warning("Could not read state for %s: %s", self.name, ex)
                 self._available = False
-    
-    def write_mqtt(self,deviceid,output):
-        """Write mqtt."""
-        mqtt_topic='pca/elv/'+deviceid
-        mqtt_clientid = f'python-mqtt-{random.randint(0, 1000)}'
-        mqtt_auth = { 'username': 'fs20mqtt', 'password': 'fs20mqtt' }
-        mqtt_url = '192.168.1.121'
-        mqtt_port = 1883
-        publish.single(mqtt_topic,json.dumps(output),qos=0,retain=True,hostname=mqtt_url,port=mqtt_port,client_id=mqtt_clientid,keepalive=60,will=None, auth=mqtt_auth,tls=None)
-        return            
