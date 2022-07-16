@@ -4,6 +4,7 @@ from __future__ import annotations
 import logging
 import random
 import pypca
+import json
 import paho.mqtt.publish as publish
 from serial import SerialException
 
@@ -91,6 +92,7 @@ class SmartPlugSwitch(SwitchEntity):
             if self._available:
                 _LOGGER.warning("Could not read state for %s: %s", self.name, ex)
                 self._available = False
+                
     def write_mqtt(self,deviceid,output):
         """Write mqtt."""
         mqtt_topic='pca/elv/'+deviceid
