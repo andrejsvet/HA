@@ -85,6 +85,8 @@ class SmartPlugSwitch(SwitchEntity):
     def update(self):
         """Update the PCA switch's state."""
         try:
+            current_power = f"{self._pca.get_current_power(self._device_id):.1f}"
+            total_energy = f"{self._pca.get_total_consumption(self._device_id):.2f}"
             self._state = self._pca.get_state(self._device_id)
             self._available = True
 
