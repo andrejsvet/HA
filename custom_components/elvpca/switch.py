@@ -2,9 +2,7 @@
 from __future__ import annotations
 
 import logging
-import re
 import random
-import threading
 import pypca
 from serial import SerialException
 
