@@ -1,7 +1,8 @@
 """Support for PCA 301 smart switch."""
-import paho.mqtt.publish as publish
-import json
+import re
 import random
+import threading
+import paho.mqtt.publish as publish
 from __future__ import annotations
 
 import logging
