@@ -90,7 +90,6 @@ class SmartPlugSwitch(SwitchEntity):
             datajson["consumption"] = f"{self._pca.get_total_consumption(self._device_id):.2f}"
             self._state = self._pca.get_state(self._device_id)
             datajson["state"] = self._state
-            datajson["id"] = self._pca
             self.write_mqtt(self._device_id,datajson)
             self._available = True
 
