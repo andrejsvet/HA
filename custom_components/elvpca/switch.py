@@ -1,12 +1,11 @@
 """Support for PCA 301 smart switch."""
+from __future__ import annotations
+
+import logging
 import re
 import random
 import threading
 import paho.mqtt.publish as publish
-from __future__ import annotations
-
-import logging
-
 import pypca
 from serial import SerialException
 
