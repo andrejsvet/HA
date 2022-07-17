@@ -93,7 +93,7 @@ class SmartPlugSwitch(SwitchEntity):
             self._state = self._pca.get_state(self._device_id)
             datajson["state"] = self._state
             #self.write_mqtt(self._device_id,datajson)
-            homeassistant.components.mqtt.publish(topic,datajson)
+            Homeassistant.components.mqtt.publish(topic,datajson)
             self._available = True
 
         except (OSError) as ex:
