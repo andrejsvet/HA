@@ -59,7 +59,7 @@ class SmartPlugSwitch(SwitchEntity):
         self._state = None
         self._available = True
         self._pca = pca
-        self._host = config[CONF_HOST]
+        #self._host = config[CONF_HOST]
         
     @property
     def name(self):
