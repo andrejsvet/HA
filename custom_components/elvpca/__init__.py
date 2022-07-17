@@ -10,6 +10,7 @@ from homeassistant.helpers.typing import ConfigType
 DOMAIN = "elvpca"
 
 DEFAULT_DEVICE = "/dev/ttyUSB0"
+DEFAULT_DEVICE = "1883"
 
 ELVPCA_PLATFORMS = [Platform.SWITCH]
 
@@ -17,8 +18,8 @@ CONFIG_SCHEMA = vol.Schema(
     {
         DOMAIN: vol.Schema(
             {vol.Optional(CONF_DEVICE, default=DEFAULT_DEVICE): cv.string,
-            vol.Optional(CONF_HOST): cv.string,
-            vol.Optional(CONF_PORT): cv.string, 
+            vol.Required(CONF_HOST): cv.string,
+            vol.Optional(CONF_PORT, default=DEFAULT_PORT): cv.string, 
             vol.Optional(CONF_USERNAME): cv.string,
             vol.Optional(CONF_PASSWORD): cv.string,
             }
