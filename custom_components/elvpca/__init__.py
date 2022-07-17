@@ -10,7 +10,7 @@ from homeassistant.helpers.typing import ConfigType
 DOMAIN = "elvpca"
 
 DEFAULT_DEVICE = "/dev/ttyUSB0"
-DEFAULT_DEVICE = "1883"
+DEFAULT_PORT = "1883"
 
 ELVPCA_PLATFORMS = [Platform.SWITCH]
 
