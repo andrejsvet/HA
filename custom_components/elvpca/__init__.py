@@ -1,7 +1,7 @@
 """The Elv integration."""
 import voluptuous as vol
 
-from homeassistant.const import CONF_HOST, CONF_PASSWORD, CONF_USERNAME, CONF_DEVICE, Platform
+from homeassistant.const import CONF_HOST, CONF_PASSWORD, CONF_USERNAME, CONF_PORT, CONF_DEVICE, Platform
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers import discovery
 import homeassistant.helpers.config_validation as cv
@@ -18,6 +18,7 @@ CONFIG_SCHEMA = vol.Schema(
         DOMAIN: vol.Schema(
             {vol.Optional(CONF_DEVICE, default=DEFAULT_DEVICE): cv.string,
             vol.Optional(CONF_HOST): cv.string,
+            vol.Optional(CONF_PORT): cv.string, 
             vol.Optional(CONF_USERNAME): cv.string,
             vol.Optional(CONF_PASSWORD): cv.string,
             }
