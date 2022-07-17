@@ -28,14 +28,14 @@ CONFIG_SCHEMA = vol.Schema(
     extra=vol.ALLOW_EXTRA,
 )
 
-testjson={}
-testjson["device"]= config[DOMAIN][CONF_DEVICE]
-testjson["host"]= config[DOMAIN][CONF_HOST]
-
 
 def setup(hass: HomeAssistant, config: ConfigType) -> bool:
     """Set up the PCA switch platform."""
 
+testjson={}
+testjson["device"]= config[DOMAIN][CONF_DEVICE]
+testjson["host"]= config[DOMAIN][CONF_HOST]
+    
     for platform in ELVPCA_PLATFORMS:
         discovery.load_platform(
             hass, platform, DOMAIN,testjson, config
