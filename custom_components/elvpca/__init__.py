@@ -34,7 +34,7 @@ def setup(hass: HomeAssistant, config: ConfigType) -> bool:
 
     for platform in ELVPCA_PLATFORMS:
         discovery.load_platform(
-            hass, platform, DOMAIN, {"device": config[DOMAIN][CONF_DEVICE]}, config
+            hass, platform, DOMAIN, {"device": config[DOMAIN][CONF_DEVICE]}, {"host": config[DOMAIN][CONF_HOST]}, config
         )
 
     return True
