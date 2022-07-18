@@ -35,13 +35,13 @@ def setup(hass: HomeAssistant, config: ConfigType) -> bool:
     'device': config[DOMAIN][CONF_DEVICE]
     }
 #{"device": config[DOMAIN][CONF_DEVICE]}
-#testjson={}
-#testjson["device"]= config[DOMAIN][CONF_DEVICE]
-#testjson["host"]= config[DOMAIN][CONF_HOST]
+    testjson={}
+    testjson["device"]= config[DOMAIN][CONF_DEVICE]
+    testjson["host"]= config[DOMAIN][CONF_HOST]
     
     for platform in ELVPCA_PLATFORMS:
         discovery.load_platform(
-            hass, platform, DOMAIN, hass.data[DOMAIN], config
+            hass, platform, DOMAIN, testjson, config
         )
 
     return True
