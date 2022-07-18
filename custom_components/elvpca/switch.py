@@ -96,8 +96,7 @@ class SmartPlugSwitch(SwitchEntity):
             datajson["consumption"] = f"{self._pca.get_total_consumption(self._device_id):.2f}"
             self._state = self._pca.get_state(self._device_id)
             datajson["state"] = self._state
-            self.write_mqtt(datajson)
-            #HomeAssistant.components.mqtt.publish(topic,datajson)
+            self.write_mqtt(self._device_id,datajson)
             self._available = True
 
         except (OSError) as ex:
@@ -105,9 +104,9 @@ class SmartPlugSwitch(SwitchEntity):
                 _LOGGER.warning("Could not read state for %s: %s", self.name, ex)
                 self._available = False
                 
-    def write_mqtt(self,output):
+    def write_mqtt(self,deviceid,output):
         """Write mqtt."""
-        mqtt_topic='elvpca/'+str(self._device_id)
+        mqtt_topic='elvpca/'+deviceid
         mqtt_clientid = f'python-mqtt-{random.randint(0, 1000)}'
         mqtt_auth = { 'username': self._user, 'password': self._pass }
         mqtt_url = self._host
