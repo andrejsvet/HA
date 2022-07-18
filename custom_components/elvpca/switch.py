@@ -59,7 +59,8 @@ class SmartPlugSwitch(SwitchEntity):
         self._state = None
         self._available = True
         self._pca = pca
-        self._host = config[CONF_HOST]
+        test = config[CONF_HOST]
+        _LOGGER.warning("To je host", test, ex)
         
     @property
     def name(self):
