@@ -31,6 +31,9 @@ CONFIG_SCHEMA = vol.Schema(
 
 def setup(hass: HomeAssistant, config: ConfigType) -> bool:
     """Set up the PCA switch platform."""
+    hass.data[DOMAIN] = {
+    'device': config[DOMAIN][CONF_DEVICE]}
+    }
 #{"device": config[DOMAIN][CONF_DEVICE]}
 #testjson={}
 #testjson["device"]= config[DOMAIN][CONF_DEVICE]
