@@ -55,7 +55,7 @@ class SmartPlugSwitch(SwitchEntity):
     def __init__(self, pca, device_id, discovery_info):
         """Initialize the switch."""
         self._device_id = device_id
-        self._name = "PCA301"+device_id
+        self._name = "PCA_"+device_id
         self._state = None
         self._available = True
         self._pca = pca
