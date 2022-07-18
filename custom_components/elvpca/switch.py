@@ -109,6 +109,6 @@ class SmartPlugSwitch(SwitchEntity):
         mqtt_clientid = f'python-mqtt-{random.randint(0, 1000)}'
         mqtt_auth = { 'username': self._user, 'password': self._pass }
         mqtt_url = self._host
-        mqtt_port = 1883
+        mqtt_port = int(self._port)
         publish.single(mqtt_topic,json.dumps(output),qos=0,retain=True,hostname=mqtt_url,port=mqtt_port,client_id=mqtt_clientid,keepalive=60,will=None, auth=mqtt_auth,tls=None)
         return
