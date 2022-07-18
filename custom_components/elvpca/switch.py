@@ -107,7 +107,7 @@ class SmartPlugSwitch(SwitchEntity):
                 
     def write_mqtt(self,output):
         """Write mqtt."""
-        mqtt_topic='elvpca/'+self._device_id
+        mqtt_topic='elvpca/'+str(self._device_id)
         mqtt_clientid = f'python-mqtt-{random.randint(0, 1000)}'
         mqtt_auth = { 'username': self._user, 'password': self._pass }
         mqtt_url = self._host
