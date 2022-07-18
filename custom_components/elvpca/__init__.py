@@ -33,11 +33,11 @@ def setup(hass: HomeAssistant, config: ConfigType) -> bool:
     """Set up the PCA switch platform."""
     #{"device": config[DOMAIN][CONF_DEVICE]}
     paramjson={}
-    paramson["device"]= config[DOMAIN][CONF_DEVICE]
-    paramson["host"]= config[DOMAIN][CONF_HOST]
-    paramson["port"]= config[DOMAIN][CONF_PORT]
-    paramson["username"]= config[DOMAIN][CONF_USERNAME]
-    paramson["password"]= config[DOMAIN][CONF_PASSWORD]
+    paramjson["device"]= config[DOMAIN][CONF_DEVICE]
+    paramjson["host"]= config[DOMAIN][CONF_HOST]
+    paramjson["port"]= config[DOMAIN][CONF_PORT]
+    paramjson["username"]= config[DOMAIN][CONF_USERNAME]
+    paramjson["password"]= config[DOMAIN][CONF_PASSWORD]
     
     for platform in ELVPCA_PLATFORMS:
         discovery.load_platform(
