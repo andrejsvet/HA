@@ -41,7 +41,7 @@ def setup(hass: HomeAssistant, config: ConfigType) -> bool:
     
     for platform in ELVPCA_PLATFORMS:
         discovery.load_platform(
-            hass, platform, DOMAIN,{}, config
+            hass, platform, DOMAIN, hass.data[DOMAIN], config
         )
 
     return True
