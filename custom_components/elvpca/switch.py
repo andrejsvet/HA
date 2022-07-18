@@ -59,6 +59,7 @@ class SmartPlugSwitch(SwitchEntity):
         self._state = None
         self._available = True
         self._pca = pca
+        self._host = discovery_info["host"]
         
     @property
     def name(self):
