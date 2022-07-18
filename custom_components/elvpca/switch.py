@@ -60,6 +60,9 @@ class SmartPlugSwitch(SwitchEntity):
         self._available = True
         self._pca = pca
         self._host = discovery_info["host"]
+        self._port = discovery_info["port"]
+        self._user = discovery_info["username"]
+        self._pass = discovery_info["password"]
         
     @property
     def name(self):
@@ -106,8 +109,8 @@ class SmartPlugSwitch(SwitchEntity):
         """Write mqtt."""
         mqtt_topic='pca/elv/'+deviceid
         mqtt_clientid = f'python-mqtt-{random.randint(0, 1000)}'
-        mqtt_auth = { 'username': 'fs20mqtt', 'password': 'fs20mqtt' }
-        mqtt_url = '192.168.1.121'
-        mqtt_port = 1883
+        mqtt_auth = { 'username': self._user, 'password': self._pass }
+        mqtt_url = self._host
+        mqtt_port = self._port
         publish.single(mqtt_topic,json.dumps(output),qos=0,retain=True,hostname=mqtt_url,port=mqtt_port,client_id=mqtt_clientid,keepalive=60,will=None, auth=mqtt_auth,tls=None)
         return
