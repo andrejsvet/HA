@@ -7,8 +7,8 @@ import pypca
 import json
 import paho.mqtt.publish as publish
 from serial import SerialException
-from homeassistant.components import mqtt
 
+from homeassistant.const import CONF_HOST, CONF_PASSWORD, CONF_USERNAME, CONF_PORT
 from homeassistant.components.switch import SwitchEntity
 from homeassistant.const import EVENT_HOMEASSISTANT_STOP
 from homeassistant.core import HomeAssistant
@@ -59,7 +59,7 @@ class SmartPlugSwitch(SwitchEntity):
         self._state = None
         self._available = True
         self._pca = pca
-        #self._host = config[CONF_HOST]
+        self._host = config[CONF_HOST]
         
     @property
     def name(self):
