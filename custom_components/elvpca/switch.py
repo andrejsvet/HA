@@ -90,7 +90,6 @@ class SmartPlugSwitch(SwitchEntity):
     def update(self):
         """Update the PCA switch's state."""
         try:
-            topic='pca/elv/'+self._device_id
             datajson = {}
             datajson["power"] = f"{self._pca.get_current_power(self._device_id):.1f}"
             datajson["consumption"] = f"{self._pca.get_total_consumption(self._device_id):.2f}"
@@ -110,6 +109,6 @@ class SmartPlugSwitch(SwitchEntity):
         mqtt_clientid = f'python-mqtt-{random.randint(0, 1000)}'
         mqtt_auth = { 'username': self._user, 'password': self._pass }
         mqtt_url = self._host
-        mqtt_port = self._port
+        mqtt_port = 1883
         publish.single(mqtt_topic,json.dumps(output),qos=0,retain=True,hostname=mqtt_url,port=mqtt_port,client_id=mqtt_clientid,keepalive=60,will=None, auth=mqtt_auth,tls=None)
         return
