@@ -31,17 +31,17 @@ CONFIG_SCHEMA = vol.Schema(
 
 def setup(hass: HomeAssistant, config: ConfigType) -> bool:
     """Set up the PCA switch platform."""
-    hass.data[DOMAIN] = {
-    'device': config[DOMAIN][CONF_DEVICE]
-    }
-#{"device": config[DOMAIN][CONF_DEVICE]}
-    testjson={}
-    testjson["device"]= config[DOMAIN][CONF_DEVICE]
-    testjson["host"]= config[DOMAIN][CONF_HOST]
+    #{"device": config[DOMAIN][CONF_DEVICE]}
+    paramjson={}
+    paramson["device"]= config[DOMAIN][CONF_DEVICE]
+    paramson["host"]= config[DOMAIN][CONF_HOST]
+    paramson["port"]= config[DOMAIN][CONF_PORT]
+    paramson["username"]= config[DOMAIN][CONF_USERNAME]
+    paramson["password"]= config[DOMAIN][CONF_PASSWORD]
     
     for platform in ELVPCA_PLATFORMS:
         discovery.load_platform(
-            hass, platform, DOMAIN, testjson, config
+            hass, platform, DOMAIN, paramjson, config
         )
 
     return True
