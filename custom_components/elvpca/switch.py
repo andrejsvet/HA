@@ -37,7 +37,7 @@ def setup_platform(
         pca = pypca.PCA(serial_device)
         pca.open()
 
-        entities = [SmartPlugSwitch(pca, device) for device in pca.get_devices()]
+        entities = [SmartPlugSwitch(pca, device,discovery_info) for device in pca.get_devices()]
         add_entities(entities, True)
 
     except SerialException as exc:
@@ -52,7 +52,7 @@ def setup_platform(
 class SmartPlugSwitch(SwitchEntity):
     """Representation of a PCA Smart Plug switch."""
 
-    def __init__(self, pca, device_id):
+    def __init__(self, pca, device_id, discovery_info):
         """Initialize the switch."""
         self._device_id = device_id
         self._name = "PCA 301"
