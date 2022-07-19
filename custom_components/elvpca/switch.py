@@ -8,7 +8,6 @@ import json
 import paho.mqtt.publish as publish
 from serial import SerialException
 
-from homeassistant.const import CONF_HOST, CONF_PASSWORD, CONF_USERNAME, CONF_PORT
 from homeassistant.components.switch import SwitchEntity
 from homeassistant.const import EVENT_HOMEASSISTANT_STOP
 from homeassistant.core import HomeAssistant
