@@ -6,7 +6,7 @@ Add the following entry in your configuration.yaml:
 
 ```yaml
 elvpca:
-  device: example_light
+  device: serial port
   host: url of MQTT
   port: 1883
   username: username of MQTT
