@@ -7,12 +7,12 @@ from homeassistant.helpers import discovery
 import homeassistant.helpers.config_validation as cv
 from homeassistant.helpers.typing import ConfigType
 
-DOMAIN = "elvpca"
+DOMAIN = "rfid"
 
 DEFAULT_DEVICE = "/dev/ttyUSB0"
 DEFAULT_PORT = "1883"
 
-ELVPCA_PLATFORMS = [Platform.SWITCH]
+RFID_PLATFORMS = [Platform.sensor]
 
 CONFIG_SCHEMA = vol.Schema(
     {
@@ -30,7 +30,7 @@ CONFIG_SCHEMA = vol.Schema(
 
 
 def setup(hass: HomeAssistant, config: ConfigType) -> bool:
-    """Set up the PCA switch platform."""
+    """Set up the RFID sensor platform."""
     #{"device": config[DOMAIN][CONF_DEVICE]}
     paramjson={}
     paramjson["device"]= config[DOMAIN][CONF_DEVICE]
@@ -39,7 +39,7 @@ def setup(hass: HomeAssistant, config: ConfigType) -> bool:
     paramjson["username"]= config[DOMAIN][CONF_USERNAME]
     paramjson["password"]= config[DOMAIN][CONF_PASSWORD]
     
-    for platform in ELVPCA_PLATFORMS:
+    for platform in RFID_PLATFORMS:
         discovery.load_platform(
             hass, platform, DOMAIN, paramjson, config
         )
