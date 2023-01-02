@@ -1,2 +1,0 @@
-Fingerprint and RFID Reader
-
