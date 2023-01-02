@@ -1,0 +1,11 @@
+
+{
+  "domain": "rfid",
+  "name": "fingerprint",
+  "documentation": "https://www.home-assistant.io/integrations/pca",
+  "codeowners": ["@andrejsvet"],
+  "requirements": [""],
+  "iot_class": "local_polling",
+  "loggers": ["rfidpy"],
+  "version": "0.1.0"
+}
