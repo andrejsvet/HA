@@ -1,6 +1,12 @@
 """Platform for sensor integration."""
 from __future__ import annotations
 
+import logging
+import random
+import json
+import paho.mqtt.publish as publish
+from serial import SerialException
+
 from homeassistant.components.sensor import (
     SensorDeviceClass,
     SensorEntity,
@@ -11,6 +17,9 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.typing import ConfigType, DiscoveryInfoType
 
+_LOGGER = logging.getLogger(__name__)
+
+DEFAULT_NAME = "RFID"
 
 def setup_platform(
     hass: HomeAssistant,
@@ -19,10 +28,10 @@ def setup_platform(
     discovery_info: DiscoveryInfoType | None = None
 ) -> None:
     """Set up the sensor platform."""
-    add_entities([ExampleSensor()])
+    add_entities([RFIDSensor()])
 
 
-class ExampleSensor(SensorEntity):
+class RFIDSensor(SensorEntity):
     """Representation of a Sensor."""
 
     _attr_name = "Example Temperature"
